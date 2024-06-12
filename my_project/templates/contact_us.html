@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+        <!-- bootstrap5 -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+
+        {% load static %}
+      <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+    <div class="container pt-5 ">
+        <div class="row">
+            {% for contact in contacts %}
+          <div class="col-md-6 contacts_sections">
+            <p class="contact_info">{{ contact.stores_name }}</p>
+            <h5 class="contact_queries">{{ contact.contact_name}}</h5>
+            <div class="contact_det_info ">{{ contact.whatsapp_numbers }}</div>
+            <div class="contact_det_info">Tel no. +971 4328 2338</div>
+            <div class="contact_det_info">{{ contact.email }}</div>
+    
+            <p class="contact_partner pt-3">{{ contact.partnership_name }}</p>
+    
+            <div class="contact_det_info py-2">{{ contact.email_another }}</div>
+            <div class="contact_det_info py-2">{{ contact.whatsapp_numbers }}</div>
+            <div class="contact_det_info ">{{ contact.address_local }}</div>
+            <div class="contact_det_info pb-2">{{ contact.address_country  }}</div>
+            <!-- <div class="contact_see_more"> -->
+              <a href="#" class=" contact_see_more mt-3">{{ contact.see_more }}</a>
+            <!-- </div> -->
+          </div>
+          {% endfor %}
+
+          <div class="col-md-6   contacts_sections-2">
+            <p class="contact_info">INFORMATION ABOUT US</p>
+            <h5 class="contact_queries-form pb-3">CONTACT US FOR ANY QUESTIONS</h5>
+            <form id="footer-contactForm" action="#" method="post">
+              <div class="mb-3">
+                <label for="name" class="form-label contact-label">Your Name (required)</label>
+                <input type="text" class="form-control contact-input" id="name" name="name" required>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label contact-label">Your Email (required)</label>
+                <input type="email" class="form-control contact-input" id="email" name="email" required>
+              </div>
+              <div class="mb-3">
+                <label for="subject_text" class="form-label contact-label">Subject</label>
+                <input type="text" class="form-control contact-input" id="subject_text" name="subject_text" required>
+              </div>
+    
+              <div class="mb-3">
+                <label for="email" class="form-label contact-label ">Your Message</label>
+                <textarea name="login_message" id="login_message" rows="7" class="w-100 contact-input"></textarea>
+                <!-- <input type="te" class="form-control footer-input" id="login_message" name="login_message" required> -->
+              </div>
+              <div class="mb-3">
+                <div class="g-recaptcha" data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR"></div>
+              </div>
+              <button type="submit" class="footer-submit btn  px-4 py-2"
+                style="background-color: rgb(243,243,243);">SEND</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+</style>
+</body>
+</html>
+
+
